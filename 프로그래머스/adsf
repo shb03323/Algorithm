@@ -1,0 +1,26 @@
+package com.company;
+
+import java.util.*;
+
+public class Test {
+    public int solution(String[][] clothes) {
+        int answer = 1;
+        HashMap<String, Integer> myMap = new HashMap<>();
+
+        for (int i = 0; i < clothes.length; i++) {
+            String key = clothes[i][1];
+
+            if (myMap.get(key) != null) {
+
+                myMap.put(key, myMap.get(key) + 1);
+            } else {
+                myMap.put(key, 1);
+            }
+        }
+
+        for (String key : myMap.keySet()) {
+            answer *= (myMap.get(key) + 1);
+        }
+        return answer - 1;
+    }
+}
